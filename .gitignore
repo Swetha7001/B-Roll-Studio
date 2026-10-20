@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.env
+*.db
+*.sqlite3
+.pytest_cache/
+
+# Node / Frontend
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+
+# Storage & Temporary Files
+artifacts/storage/*
+!artifacts/storage/.gitkeep
+test_pack/outputs/*
+!test_pack/outputs/.gitkeep
+*.mp4
+*.wav
+*.mp3
+*.m4a
+*.srt
+
+# Logs & OS
+*.log
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
