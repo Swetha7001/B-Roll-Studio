@@ -10,10 +10,10 @@ from typing import Any, Dict
 from fastapi import FastAPI, Request, status
 from fastapi.exceptions import RequestValidationError
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import JSONResponse
+from fastapi.responses import FileResponse, JSONResponse
 from sqlalchemy import text
 
-from app.api.v1.endpoints import broll, storage_view
+from app.api.v1.endpoints import broll, google_studio, storage_view
 from app.core.config import settings
 from app.core.database import AsyncSessionLocal, init_db
 from app.core.errors import AppError, app_exception_handler, generic_exception_handler
@@ -71,12 +71,19 @@ app.add_exception_handler(AppError, app_exception_handler)
 
 @app.exception_handler(RequestValidationError)
 async def validation_exception_handler(request: Request, exc: RequestValidationError) -> JSONResponse:
+    safe_errors = []
+    for err in exc.errors():
+        safe_err = dict(err)
+        if "ctx" in safe_err and isinstance(safe_err["ctx"], dict):
+            safe_err["ctx"] = {k: str(v) for k, v in safe_err["ctx"].items()}
+        safe_errors.append(safe_err)
+
     error_payload = {
         "error": {
             "code": "VALIDATION_ERROR",
             "message": "The request body or parameters failed schema validation.",
             "retryable": False,
-            "details": {"errors": exc.errors()}
+            "details": {"errors": safe_errors}
         }
     }
     return JSONResponse(status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, content=error_payload)
@@ -144,7 +151,24 @@ async def readiness_check() -> Dict[str, Any]:
 
 # 5. Mount Core API v1 Routes under /api/v1 (Integration Standard Point 2)
 app.include_router(broll.router, prefix=settings.API_V1_PREFIX, tags=["B-Roll Engine"])
+app.include_router(google_studio.router, prefix=f"{settings.API_V1_PREFIX}/google-studio", tags=["Google AI Video Studio"])
 app.include_router(storage_view.router, prefix=settings.API_V1_PREFIX, tags=["Storage"])
+
+# 6. Mount Frontend Static Build (Production & Standalone Mode)
+from fastapi.staticfiles import StaticFiles
+frontend_dist = Path(__file__).parent.parent.parent / "frontend" / "dist"
+if frontend_dist.exists() and (frontend_dist / "index.html").exists():
+    app.mount("/assets", StaticFiles(directory=str(frontend_dist / "assets")), name="assets")
+    
+    @app.get("/{full_path:path}", include_in_schema=False)
+    async def serve_spa(full_path: str):
+        # Allow API routes, docs, and health checks to pass through
+        if full_path.startswith("api/") or full_path in ("docs", "redoc", "openapi.json", "health", "ready"):
+            return JSONResponse(status_code=404, content={"detail": "Not Found"})
+        target = frontend_dist / full_path
+        if target.exists() and target.is_file():
+            return FileResponse(target)
+        return FileResponse(frontend_dist / "index.html")
 
 
 if __name__ == "__main__":

@@ -1,0 +1,31 @@
+{
+  "id": "input_10_structured_scenes",
+  "title": "Structured IncuBrix Scene List Input",
+  "scenes": [
+    {
+      "text": "Managing corporate finances requires strategic planning and disciplined saving.",
+      "visual_hint": "executive counting currency banknotes and reviewing financial assets"
+    },
+    {
+      "text": "Deploying scalable infrastructure to the cloud protects company data and uptime.",
+      "visual_hint": "cloud computing server rack with blinking led lights"
+    },
+    {
+      "text": "True professional partnerships are founded on mutual trust and shared values.",
+      "visual_hint": "business partners shaking hands firmly in collaborative office"
+    }
+  ],
+  "voice": "en-IN-female",
+  "aspect_ratios": [
+    "16:9",
+    "9:16"
+  ],
+  "style": "cinematic commercial",
+  "avoid": [
+    "people's faces"
+  ],
+  "captions": {
+    "burn_in": true,
+    "srt": true
+  }
+}

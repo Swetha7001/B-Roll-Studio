@@ -1,0 +1,17 @@
+{
+  "id": "input_02_news_summary",
+  "title": "News Summary: Renewable Energy Grid Expansion",
+  "script": "State energy regulators announced a landmark milestone today as national renewable generation reached record levels. Government funding will modernize electrical grid transmission across regional networks.",
+  "voice": "en-IN-male",
+  "aspect_ratios": [
+    "16:9"
+  ],
+  "style": "journalistic, clean",
+  "avoid": [
+    "violence"
+  ],
+  "captions": {
+    "burn_in": true,
+    "srt": true
+  }
+}

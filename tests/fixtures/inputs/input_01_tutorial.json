@@ -1,0 +1,18 @@
+{
+  "id": "input_01_tutorial",
+  "title": "Educational Tutorial: Cloud Computing Architecture",
+  "script": "Cloud computing allows developers to deploy applications on global server infrastructure without managing physical hardware. Modern cloud platforms provide scalable databases, automated monitoring, and reliable data storage.",
+  "voice": "en-IN-female",
+  "aspect_ratios": [
+    "16:9",
+    "9:16"
+  ],
+  "style": "bright, modern tech",
+  "avoid": [
+    "people's faces"
+  ],
+  "captions": {
+    "burn_in": true,
+    "srt": true
+  }
+}

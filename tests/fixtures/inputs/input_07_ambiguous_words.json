@@ -1,0 +1,16 @@
+{
+  "id": "input_07_ambiguous_words",
+  "title": "Ambiguous Disambiguation: Cloud, Bank, Mouse, Python",
+  "script": "We configured our cloud computing servers near the river bank. The developer used a computer mouse to write clean python code for financial wealth growth.",
+  "voice": "en-IN-female",
+  "aspect_ratios": [
+    "16:9",
+    "9:16"
+  ],
+  "style": "modern technology",
+  "avoid": [],
+  "captions": {
+    "burn_in": true,
+    "srt": true
+  }
+}

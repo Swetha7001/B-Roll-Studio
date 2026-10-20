@@ -1,0 +1,15 @@
+{
+  "id": "input_04_short_story",
+  "title": "Short Narrative: The Founder's Journey",
+  "script": "They started in a cramped office with only two laptops and unwavering conviction. Every late night debugging code brought them closer to building something truly enduring.",
+  "voice": "en-US-female",
+  "aspect_ratios": [
+    "16:9"
+  ],
+  "style": "inspirational, warm",
+  "avoid": [],
+  "captions": {
+    "burn_in": true,
+    "srt": true
+  }
+}

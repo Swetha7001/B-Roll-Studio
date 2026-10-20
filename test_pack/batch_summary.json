@@ -1,0 +1,189 @@
+{
+  "batch_runner_version": "1.0.0",
+  "timestamp": "2026-10-20T10:58:30Z",
+  "total_inputs": 10,
+  "succeeded": 10,
+  "failed": 0,
+  "success_rate_percent": 100.0,
+  "total_batch_duration_sec": 307.66,
+  "average_job_duration_sec": 30.77,
+  "results": [
+    {
+      "input_id": "input_01_tutorial",
+      "job_id": "c108537e-b545-4564-8c80-ada91ef0f96d",
+      "status": "succeeded",
+      "duration_sec": 54.79,
+      "cost_usd": 0.00386,
+      "scene_count": 2,
+      "avg_relevance_score": 4.2,
+      "avg_human_rating": 4.5,
+      "repeat_clip_count": 0,
+      "artifacts": {
+        "captions_srt": "C:\\Users\\USER\\.gemini\\antigravity\\scratch\\broll-studio\\test_pack\\outputs\\input_01_tutorial\\captions.srt",
+        "video_16_9": "C:\\Users\\USER\\.gemini\\antigravity\\scratch\\broll-studio\\test_pack\\outputs\\input_01_tutorial\\video_16_9.mp4",
+        "video_9_16": "C:\\Users\\USER\\.gemini\\antigravity\\scratch\\broll-studio\\test_pack\\outputs\\input_01_tutorial\\video_9_16.mp4",
+        "timeline_json": "C:\\Users\\USER\\.gemini\\antigravity\\scratch\\broll-studio\\test_pack\\outputs\\input_01_tutorial\\timeline.json",
+        "manifest_json": "C:\\Users\\USER\\.gemini\\antigravity\\scratch\\broll-studio\\test_pack\\outputs\\input_01_tutorial\\manifest.json"
+      }
+    },
+    {
+      "input_id": "input_02_news_summary",
+      "job_id": "676226b2-5245-4157-aa7e-6b0f38a9afd2",
+      "status": "succeeded",
+      "duration_sec": 15.19,
+      "cost_usd": 0.00248,
+      "scene_count": 2,
+      "avg_relevance_score": 3.8,
+      "avg_human_rating": 3.8,
+      "repeat_clip_count": 0,
+      "artifacts": {
+        "captions_srt": "C:\\Users\\USER\\.gemini\\antigravity\\scratch\\broll-studio\\test_pack\\outputs\\input_02_news_summary\\captions.srt",
+        "video_16_9": "C:\\Users\\USER\\.gemini\\antigravity\\scratch\\broll-studio\\test_pack\\outputs\\input_02_news_summary\\video_16_9.mp4",
+        "timeline_json": "C:\\Users\\USER\\.gemini\\antigravity\\scratch\\broll-studio\\test_pack\\outputs\\input_02_news_summary\\timeline.json",
+        "manifest_json": "C:\\Users\\USER\\.gemini\\antigravity\\scratch\\broll-studio\\test_pack\\outputs\\input_02_news_summary\\manifest.json"
+      }
+    },
+    {
+      "input_id": "input_03_product_promo",
+      "job_id": "1b101c8e-ebf9-4cce-8dae-8ca0a8cd664e",
+      "status": "succeeded",
+      "duration_sec": 59.22,
+      "cost_usd": 0.00378,
+      "scene_count": 2,
+      "avg_relevance_score": 3.8,
+      "avg_human_rating": 3.8,
+      "repeat_clip_count": 0,
+      "artifacts": {
+        "captions_srt": "C:\\Users\\USER\\.gemini\\antigravity\\scratch\\broll-studio\\test_pack\\outputs\\input_03_product_promo\\captions.srt",
+        "video_16_9": "C:\\Users\\USER\\.gemini\\antigravity\\scratch\\broll-studio\\test_pack\\outputs\\input_03_product_promo\\video_16_9.mp4",
+        "video_9_16": "C:\\Users\\USER\\.gemini\\antigravity\\scratch\\broll-studio\\test_pack\\outputs\\input_03_product_promo\\video_9_16.mp4",
+        "video_1_1": "C:\\Users\\USER\\.gemini\\antigravity\\scratch\\broll-studio\\test_pack\\outputs\\input_03_product_promo\\video_1_1.mp4",
+        "timeline_json": "C:\\Users\\USER\\.gemini\\antigravity\\scratch\\broll-studio\\test_pack\\outputs\\input_03_product_promo\\timeline.json",
+        "manifest_json": "C:\\Users\\USER\\.gemini\\antigravity\\scratch\\broll-studio\\test_pack\\outputs\\input_03_product_promo\\manifest.json"
+      }
+    },
+    {
+      "input_id": "input_04_short_story",
+      "job_id": "5d76bc26-6344-4d99-ad7a-35e01c8d7e95",
+      "status": "succeeded",
+      "duration_sec": 10.64,
+      "cost_usd": 0.00199,
+      "scene_count": 2,
+      "avg_relevance_score": 4.1,
+      "avg_human_rating": 4.2,
+      "repeat_clip_count": 0,
+      "artifacts": {
+        "captions_srt": "C:\\Users\\USER\\.gemini\\antigravity\\scratch\\broll-studio\\test_pack\\outputs\\input_04_short_story\\captions.srt",
+        "video_16_9": "C:\\Users\\USER\\.gemini\\antigravity\\scratch\\broll-studio\\test_pack\\outputs\\input_04_short_story\\video_16_9.mp4",
+        "timeline_json": "C:\\Users\\USER\\.gemini\\antigravity\\scratch\\broll-studio\\test_pack\\outputs\\input_04_short_story\\timeline.json",
+        "manifest_json": "C:\\Users\\USER\\.gemini\\antigravity\\scratch\\broll-studio\\test_pack\\outputs\\input_04_short_story\\manifest.json"
+      }
+    },
+    {
+      "input_id": "input_05_abstract_concept",
+      "job_id": "07a4ab42-770e-497a-ac7f-b3a1444239b1",
+      "status": "succeeded",
+      "duration_sec": 31.93,
+      "cost_usd": 0.00252,
+      "scene_count": 2,
+      "avg_relevance_score": 4.8,
+      "avg_human_rating": 5.0,
+      "repeat_clip_count": 0,
+      "artifacts": {
+        "captions_srt": "C:\\Users\\USER\\.gemini\\antigravity\\scratch\\broll-studio\\test_pack\\outputs\\input_05_abstract_concept\\captions.srt",
+        "video_16_9": "C:\\Users\\USER\\.gemini\\antigravity\\scratch\\broll-studio\\test_pack\\outputs\\input_05_abstract_concept\\video_16_9.mp4",
+        "video_9_16": "C:\\Users\\USER\\.gemini\\antigravity\\scratch\\broll-studio\\test_pack\\outputs\\input_05_abstract_concept\\video_9_16.mp4",
+        "timeline_json": "C:\\Users\\USER\\.gemini\\antigravity\\scratch\\broll-studio\\test_pack\\outputs\\input_05_abstract_concept\\timeline.json",
+        "manifest_json": "C:\\Users\\USER\\.gemini\\antigravity\\scratch\\broll-studio\\test_pack\\outputs\\input_05_abstract_concept\\manifest.json"
+      }
+    },
+    {
+      "input_id": "input_06_finance_statistics",
+      "job_id": "22dbf8f0-40c6-4808-b473-6c9873d6e655",
+      "status": "succeeded",
+      "duration_sec": 27.34,
+      "cost_usd": 0.00252,
+      "scene_count": 2,
+      "avg_relevance_score": 4.8,
+      "avg_human_rating": 5.0,
+      "repeat_clip_count": 0,
+      "artifacts": {
+        "captions_srt": "C:\\Users\\USER\\.gemini\\antigravity\\scratch\\broll-studio\\test_pack\\outputs\\input_06_finance_statistics\\captions.srt",
+        "video_16_9": "C:\\Users\\USER\\.gemini\\antigravity\\scratch\\broll-studio\\test_pack\\outputs\\input_06_finance_statistics\\video_16_9.mp4",
+        "video_1_1": "C:\\Users\\USER\\.gemini\\antigravity\\scratch\\broll-studio\\test_pack\\outputs\\input_06_finance_statistics\\video_1_1.mp4",
+        "timeline_json": "C:\\Users\\USER\\.gemini\\antigravity\\scratch\\broll-studio\\test_pack\\outputs\\input_06_finance_statistics\\timeline.json",
+        "manifest_json": "C:\\Users\\USER\\.gemini\\antigravity\\scratch\\broll-studio\\test_pack\\outputs\\input_06_finance_statistics\\manifest.json"
+      }
+    },
+    {
+      "input_id": "input_07_ambiguous_words",
+      "job_id": "365aee66-f1ce-4e68-965f-03c51ae9727a",
+      "status": "succeeded",
+      "duration_sec": 31.88,
+      "cost_usd": 0.00244,
+      "scene_count": 2,
+      "avg_relevance_score": 4.8,
+      "avg_human_rating": 5.0,
+      "repeat_clip_count": 0,
+      "artifacts": {
+        "captions_srt": "C:\\Users\\USER\\.gemini\\antigravity\\scratch\\broll-studio\\test_pack\\outputs\\input_07_ambiguous_words\\captions.srt",
+        "video_16_9": "C:\\Users\\USER\\.gemini\\antigravity\\scratch\\broll-studio\\test_pack\\outputs\\input_07_ambiguous_words\\video_16_9.mp4",
+        "video_9_16": "C:\\Users\\USER\\.gemini\\antigravity\\scratch\\broll-studio\\test_pack\\outputs\\input_07_ambiguous_words\\video_9_16.mp4",
+        "timeline_json": "C:\\Users\\USER\\.gemini\\antigravity\\scratch\\broll-studio\\test_pack\\outputs\\input_07_ambiguous_words\\timeline.json",
+        "manifest_json": "C:\\Users\\USER\\.gemini\\antigravity\\scratch\\broll-studio\\test_pack\\outputs\\input_07_ambiguous_words\\manifest.json"
+      }
+    },
+    {
+      "input_id": "input_08_short_duration",
+      "job_id": "890d22a3-6ca6-4b52-8250-ab6f89ab788a",
+      "status": "succeeded",
+      "duration_sec": 16.76,
+      "cost_usd": 0.00161,
+      "scene_count": 2,
+      "avg_relevance_score": 4.5,
+      "avg_human_rating": 4.5,
+      "repeat_clip_count": 0,
+      "artifacts": {
+        "captions_srt": "C:\\Users\\USER\\.gemini\\antigravity\\scratch\\broll-studio\\test_pack\\outputs\\input_08_short_duration\\captions.srt",
+        "video_9_16": "C:\\Users\\USER\\.gemini\\antigravity\\scratch\\broll-studio\\test_pack\\outputs\\input_08_short_duration\\video_9_16.mp4",
+        "timeline_json": "C:\\Users\\USER\\.gemini\\antigravity\\scratch\\broll-studio\\test_pack\\outputs\\input_08_short_duration\\timeline.json",
+        "manifest_json": "C:\\Users\\USER\\.gemini\\antigravity\\scratch\\broll-studio\\test_pack\\outputs\\input_08_short_duration\\manifest.json"
+      }
+    },
+    {
+      "input_id": "input_09_multilingual_hindi",
+      "job_id": "898de3de-e028-4e5e-9f29-9bb07bb9b735",
+      "status": "succeeded",
+      "duration_sec": 10.67,
+      "cost_usd": 0.00146,
+      "scene_count": 1,
+      "avg_relevance_score": 4.2,
+      "avg_human_rating": 4.0,
+      "repeat_clip_count": 0,
+      "artifacts": {
+        "captions_srt": "C:\\Users\\USER\\.gemini\\antigravity\\scratch\\broll-studio\\test_pack\\outputs\\input_09_multilingual_hindi\\captions.srt",
+        "video_16_9": "C:\\Users\\USER\\.gemini\\antigravity\\scratch\\broll-studio\\test_pack\\outputs\\input_09_multilingual_hindi\\video_16_9.mp4",
+        "timeline_json": "C:\\Users\\USER\\.gemini\\antigravity\\scratch\\broll-studio\\test_pack\\outputs\\input_09_multilingual_hindi\\timeline.json",
+        "manifest_json": "C:\\Users\\USER\\.gemini\\antigravity\\scratch\\broll-studio\\test_pack\\outputs\\input_09_multilingual_hindi\\manifest.json"
+      }
+    },
+    {
+      "input_id": "input_10_structured_scenes",
+      "job_id": "ad7387ad-3586-453b-bf39-8443bf96efd6",
+      "status": "succeeded",
+      "duration_sec": 47.09,
+      "cost_usd": 0.00377,
+      "scene_count": 3,
+      "avg_relevance_score": 4.6,
+      "avg_human_rating": 4.7,
+      "repeat_clip_count": 0,
+      "artifacts": {
+        "captions_srt": "C:\\Users\\USER\\.gemini\\antigravity\\scratch\\broll-studio\\test_pack\\outputs\\input_10_structured_scenes\\captions.srt",
+        "video_16_9": "C:\\Users\\USER\\.gemini\\antigravity\\scratch\\broll-studio\\test_pack\\outputs\\input_10_structured_scenes\\video_16_9.mp4",
+        "video_9_16": "C:\\Users\\USER\\.gemini\\antigravity\\scratch\\broll-studio\\test_pack\\outputs\\input_10_structured_scenes\\video_9_16.mp4",
+        "timeline_json": "C:\\Users\\USER\\.gemini\\antigravity\\scratch\\broll-studio\\test_pack\\outputs\\input_10_structured_scenes\\timeline.json",
+        "manifest_json": "C:\\Users\\USER\\.gemini\\antigravity\\scratch\\broll-studio\\test_pack\\outputs\\input_10_structured_scenes\\manifest.json"
+      }
+    }
+  ]
+}

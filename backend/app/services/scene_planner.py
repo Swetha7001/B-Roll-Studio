@@ -37,7 +37,11 @@ class ScenePlanner:
     DISAMBIGUATION_RULES = [
         {
             "word": r"\bcloud\b",
-            "tech_signals": ["computing", "server", "aws", "azure", "data", "storage", "tech", "cluster", "saas", "api"],
+            "tech_signals": [
+                "computing", "server", "aws", "azure", "data", "storage", "tech", "cluster", "saas", "api",
+                "system", "systems", "automated", "deploy", "deploying", "software", "platform", "infrastructure",
+                "network", "security", "protect", "business", "revenue", "architecture", "digital"
+            ],
             "tech_intent": "cloud computing server room with blinking led lights and network rack",
             "nature_intent": "clear blue sky with soft white clouds"
         },
@@ -51,7 +55,8 @@ class ScenePlanner:
             "word": r"\bvalue\b",
             "ethics_signals": ["trust", "culture", "core", "integrity", "principle", "respect", "relationship", "belief"],
             "ethics_intent": "architectural foundation and business partners shaking hands with mutual trust",
-            "fin_intent": "counting investment returns and financial assets"
+            "fin_intent": "counting investment returns and financial assets",
+            "nature_intent": "architectural foundation and business partners shaking hands with mutual trust"
         },
         {
             "word": r"\bmouse\b",
@@ -198,7 +203,7 @@ class ScenePlanner:
 
         # If user explicitly provided visual hint, prioritize it
         if user_hint and user_hint.strip():
-            return user_hint.strip(), "user_specified", "cyan", notes
+            return user_hint.strip(), "ai_scene", "cyan", notes
 
         # 2. Check for Disambiguation rules
         for rule in self.DISAMBIGUATION_RULES:
@@ -209,7 +214,8 @@ class ScenePlanner:
                     palette = "cyan" if "tech" in rule else ("emerald" if "fin" in rule else "amber")
                     return intent, "disambiguated_specific", palette, notes
                 else:
-                    return rule["nature_intent"], "disambiguated_default", "cyan", notes
+                    default_intent = rule.get("nature_intent") or rule.get("fin_intent") or "modern professional footage"
+                    return default_intent, "disambiguated_default", "cyan", notes
 
         # 3. Check for Abstract lines ("trust is earned slowly", "values matter")
         if any(w in lower_text for w in ["trust", "earn", "slowly", "relationship", "reputation", "foundation"]):

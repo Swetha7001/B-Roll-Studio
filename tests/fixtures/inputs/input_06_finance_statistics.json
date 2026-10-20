@@ -1,0 +1,16 @@
+{
+  "id": "input_06_finance_statistics",
+  "title": "Financial Statistics: Annual Growth Review",
+  "script": "Quarterly enterprise sales grew 40% in 2025 across all primary markets. Disciplined budget allocation and proactive investment management generated strong shareholder returns.",
+  "voice": "en-IN-male",
+  "aspect_ratios": [
+    "16:9",
+    "1:1"
+  ],
+  "style": "executive, analytical",
+  "avoid": [],
+  "captions": {
+    "burn_in": true,
+    "srt": true
+  }
+}

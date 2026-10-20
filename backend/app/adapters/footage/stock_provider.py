@@ -28,7 +28,7 @@ CURATED_CATALOG: List[Dict[str, Any]] = [
         "license_url": "https://www.pexels.com/license/",
         "attribution": "Pexels Creator / IncuBrix Verified Commercial Stock",
         "is_ai_generated": False,
-        "tags": ["money", "save", "saving", "cash", "finance", "investment", "wealth", "bank", "budget"]
+        "tags": ["money", "save", "saving", "cash", "finance", "investment", "wealth", "bank", "budget", "financial", "freedom", "funds"]
     },
     {
         "clip_id": "stock-tech-002",
@@ -44,7 +44,10 @@ CURATED_CATALOG: List[Dict[str, Any]] = [
         "license_url": "https://www.pexels.com/license/",
         "attribution": "Pexels Technology Archive / IncuBrix Verified Commercial Stock",
         "is_ai_generated": False,
-        "tags": ["cloud", "cloud computing", "server", "technology", "data", "infrastructure", "network", "code", "python"]
+        "tags": [
+            "cloud", "cloud computing", "server", "technology", "data", "infrastructure",
+            "network", "code", "python", "system", "systems", "automated", "deploy", "security"
+        ]
     },
     {
         "clip_id": "stock-work-003",
@@ -76,7 +79,7 @@ CURATED_CATALOG: List[Dict[str, Any]] = [
         "license_url": "https://www.pexels.com/license/",
         "attribution": "Pexels Business Edition / IncuBrix Verified Commercial Stock",
         "is_ai_generated": False,
-        "tags": ["trust", "partnership", "agreement", "handshake", "foundation", "values", "integrity", "reputation"]
+        "tags": ["trust", "partnership", "agreement", "handshake", "foundation", "values", "integrity", "reputation", "habit", "habits", "build", "future"]
     },
     {
         "clip_id": "stock-stat-005",

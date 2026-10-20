@@ -1,0 +1,16 @@
+{
+  "id": "input_05_abstract_concept",
+  "title": "Abstract Concept: Trust & Foundation",
+  "script": "Trust is earned slowly through consistent actions and unwavering integrity. When partnerships are built on solid foundations, enduring value naturally follows.",
+  "voice": "en-IN-female",
+  "aspect_ratios": [
+    "16:9",
+    "9:16"
+  ],
+  "style": "metaphorical, dignified",
+  "avoid": [],
+  "captions": {
+    "burn_in": true,
+    "srt": true
+  }
+}

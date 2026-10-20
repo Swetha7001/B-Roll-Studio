@@ -1,0 +1,19 @@
+{
+  "id": "input_03_product_promo",
+  "title": "Product Promotion: B-Roll Studio Workflow",
+  "script": "Transform your creative workflow with automated B-roll generation. Simply type your script, and let artificial intelligence match cinematic, commercial-grade stock footage timed perfectly to your voice.",
+  "voice": "en-IN-female",
+  "aspect_ratios": [
+    "16:9",
+    "9:16",
+    "1:1"
+  ],
+  "style": "cinematic, polished",
+  "avoid": [
+    "alcohol"
+  ],
+  "captions": {
+    "burn_in": true,
+    "srt": true
+  }
+}

@@ -71,6 +71,7 @@ class JobRunner:
             narration_wav = job_dir / "narration.wav"
             timing_cues: List[Dict[str, Any]] = []
             script_text = ""
+            structured_inputs: Optional[List[SceneInputItem]] = None
 
             if job.input_type == "audio":
                 audio_url = input_payload.get("audio_url")
@@ -129,9 +130,26 @@ class JobRunner:
                 script_text = full_script
 
             else:  # "script"
-                script_text = input_payload.get("script", "").strip()
-                if not script_text:
+                raw_script_text = input_payload.get("script", "").strip()
+                if not raw_script_text:
                     raise AppError(code="EMPTY_SCRIPT_ERROR", message="Script cannot be empty.")
+                
+                from app.services.ai_story_director import ai_story_director
+                if ai_story_director.should_expand(raw_script_text):
+                    logger.info(f"AI Story Director: Expanding raw prompt into cinematic multi-scene narrative...")
+                    expanded_data = ai_story_director.expand_story_prompt(raw_script_text)
+                    script_text = " ".join(s["narration"] for s in expanded_data)
+                    structured_inputs = [
+                        SceneInputItem(
+                            text=s["narration"],
+                            visual_hint=s["visual_prompt"]
+                        )
+                        for s in expanded_data
+                    ]
+                else:
+                    script_text = raw_script_text
+                    structured_inputs = None
+
                 voice = options.get("voice", settings.DEFAULT_VOICE)
                 total_duration, timing_cues = await self.tts.synthesize(script_text, voice, narration_wav)
 
@@ -148,7 +166,6 @@ class JobRunner:
             # STAGE 3: SEMANTIC SCENE PLANNING (Progress 40%)
             # ------------------------------------------------------------------
             t1 = time.time()
-            structured_inputs = None
             if job.input_type == "scenes":
                 structured_inputs = [SceneInputItem(**s) for s in input_payload.get("scenes", [])]
 

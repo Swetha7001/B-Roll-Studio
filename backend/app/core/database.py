@@ -28,6 +28,8 @@ AsyncSessionLocal = async_sessionmaker(
 
 async def init_db():
     """Initializes database tables."""
+    # Ensure all models are registered with Base.metadata
+    from app.models.job import Job, JobArtifact, Scene  # noqa: F401
     async with engine.begin() as conn:
         await conn.run_sync(Base.metadata.create_all)
     logger.info("Database initialized successfully.")

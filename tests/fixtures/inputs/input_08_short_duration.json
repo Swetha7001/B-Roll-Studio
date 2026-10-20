@@ -1,0 +1,15 @@
+{
+  "id": "input_08_short_duration",
+  "title": "Short Narrative: Rapid Daily Tip",
+  "script": "Save money automatically every single payday. Consistent small habits build substantial financial freedom over time.",
+  "voice": "en-IN-female",
+  "aspect_ratios": [
+    "9:16"
+  ],
+  "style": "snappy, dynamic",
+  "avoid": [],
+  "captions": {
+    "burn_in": true,
+    "srt": true
+  }
+}

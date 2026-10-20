@@ -1,0 +1,15 @@
+{
+  "id": "input_09_multilingual_hindi",
+  "title": "Multilingual Indian Accent / Hindi Voiceover",
+  "script": "बचत करना और सही जगह निवेश करना भविष्य के लिए बहुत जरूरी है। सही वित्तीय योजना आपको आर्थिक स्वतंत्रता प्रदान करती है।",
+  "voice": "hi-IN-female",
+  "aspect_ratios": [
+    "16:9"
+  ],
+  "style": "bright, authentic",
+  "avoid": [],
+  "captions": {
+    "burn_in": true,
+    "srt": true
+  }
+}

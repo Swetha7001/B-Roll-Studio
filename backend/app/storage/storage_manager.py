@@ -43,6 +43,12 @@ class StorageManager:
                 logger.warning(f"Could not initialize MinIO client ({e}). Falling back to local storage.")
                 self.backend = "local"
 
+    def get_job_dir(self, job_id: str) -> Path:
+        """Returns the local directory path for a job's artifacts."""
+        p = self.local_dir / job_id
+        p.mkdir(parents=True, exist_ok=True)
+        return p
+
     def put_file(
         self,
         relative_path: str,

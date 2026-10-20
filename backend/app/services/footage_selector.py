@@ -4,6 +4,7 @@ Implements Must-Haves MH-3, MH-5 and Advanced Requirements ADV-1, ADV-2, and Out
 """
 from dataclasses import dataclass
 from typing import Any, Dict, List, Optional, Set, Tuple
+from app.adapters.footage.ai_generative_provider import AIGenerativeProvider
 from app.adapters.footage.base import FootageClip, FootageProvider
 from app.adapters.footage.procedural_provider import ProceduralGenerativeProvider
 from app.adapters.footage.stock_provider import CuratedStockProvider
@@ -31,23 +32,30 @@ class FootageSelector:
     def __init__(self):
         self.stock_provider = CuratedStockProvider()
         self.procedural_provider = ProceduralGenerativeProvider()
+        self.ai_generative_provider = AIGenerativeProvider()
         self.mock_provider = DeterministicMockProvider()
 
     def _determine_provider_choice(self, scene: PlannedScene) -> Tuple[str, str]:
         """
         Written, Measurable Rule for choosing between Footage Sources (ADV-1):
-        - Rule 1: If category is 'abstract_concept' or 'data_statistics' or narration describes
-          intangible processes (e.g. algorithms, cloud architecture, statistical models):
-          -> Select 'procedural_gen' (Procedural/Synthetic AI motion) because abstract concepts
-             are better conveyed via clean mathematical and geometric motion graphics.
-        - Rule 2: If category is 'finance', 'technology', 'general_lifestyle', or describes physical
-          entities (banknotes, computers, handshakes, team meetings):
-          -> Select 'curated_stock' (Real-world Commercial Stock) because real footage provides
-             higher authenticity and emotional resonance.
-        - Rule 3: If selected provider fails or returns zero candidates, fallback gracefully
-          to the other provider.
+        - Rule 1: If category starts with 'story_' or visual_intent contains bespoke cinematic
+          scene directives:
+          -> Select 'ai_generative' (Bespoke AI Video Synthesis) to generate exact situation footage.
+        - Rule 2: If category is 'abstract_concept' or 'data_statistics':
+          -> Select 'procedural_gen' (Procedural/Synthetic AI motion) for clean mathematical/geometric motion.
+        - Rule 3: If category is 'finance', 'technology', 'general_lifestyle':
+          -> Select 'curated_stock' (Real-world Commercial Stock) for authentic real-world depiction.
+        - Rule 4: If selected provider fails or returns zero candidates, fallback gracefully.
         """
-        if scene.category in ("abstract_concept", "data_statistics"):
+        lower_intent = scene.visual_intent.lower()
+        if (
+            scene.category.startswith("story_")
+            or "cinematic" in lower_intent
+            or "photorealistic" in lower_intent
+            or scene.category == "ai_scene"
+        ):
+            return "ai_generative", f"Scene requires bespoke AI video synthesis for exact narrative context: '{scene.visual_intent[:45]}'."
+        elif scene.category in ("abstract_concept", "data_statistics"):
             return "procedural_gen", f"Category '{scene.category}' selected Procedural Generative engine for abstract motion graphics representation."
         else:
             return "curated_stock", f"Concrete domain '{scene.category}' selected Curated Commercial Stock footage for authentic real-world depiction."
@@ -67,8 +75,23 @@ class FootageSelector:
             chosen_clip: Optional[FootageClip] = None
             fallback_activated = False
 
-            # Primary attempt
-            if preferred_provider == "curated_stock":
+            # Primary attempt 1: Bespoke AI Generative Video
+            if preferred_provider == "ai_generative":
+                ai_candidates = await self.ai_generative_provider.search(
+                    query=scene.narration_text,
+                    visual_intent=scene.visual_intent,
+                    target_duration=scene.duration,
+                    aspect_ratio=aspect_ratio,
+                    avoid=avoid
+                )
+                if ai_candidates:
+                    chosen_clip = ai_candidates[0]
+                else:
+                    fallback_activated = True
+                    preferred_provider = "curated_stock"
+
+            # Primary attempt 2: Curated Commercial Stock
+            if not chosen_clip and preferred_provider == "curated_stock":
                 candidates = await self.stock_provider.search(
                     query=scene.narration_text,
                     visual_intent=scene.visual_intent,
@@ -76,24 +99,15 @@ class FootageSelector:
                     aspect_ratio=aspect_ratio,
                     avoid=avoid + list(used_clip_ids)
                 )
-                # Filter out already used clips to ensure ZERO repeats (MH-5)
                 available = [c for c in candidates if c.clip_id not in used_clip_ids]
                 if available:
                     chosen_clip = available[0]
                 else:
-                    # Fallback to procedural generator (MH-7)
                     fallback_activated = True
-                    proc_candidates = await self.procedural_provider.search(
-                        query=scene.narration_text,
-                        visual_intent=scene.visual_intent,
-                        target_duration=scene.duration,
-                        aspect_ratio=aspect_ratio,
-                        avoid=avoid
-                    )
-                    chosen_clip = proc_candidates[0]
-                    selection_rule_reason += " [Primary stock exhausted; fallback to Procedural Gen activated]"
-            else:
-                # Procedural generation preferred
+                    preferred_provider = "procedural_gen"
+
+            # Primary attempt 3: Procedural Generator
+            if not chosen_clip and preferred_provider == "procedural_gen":
                 proc_candidates = await self.procedural_provider.search(
                     query=scene.narration_text,
                     visual_intent=scene.visual_intent,
@@ -101,7 +115,8 @@ class FootageSelector:
                     aspect_ratio=aspect_ratio,
                     avoid=avoid
                 )
-                chosen_clip = proc_candidates[0]
+                if proc_candidates:
+                    chosen_clip = proc_candidates[0]
 
             # Failsafe: if still no clip, use mock provider
             if not chosen_clip:
