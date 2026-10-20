@@ -25,6 +25,7 @@
 - **Dual-Source Footage Architecture (Advanced Tier ADV-1):**
   - *Curated Commercial Stock:* 100% verified Pexels commercial-license clips for real-world entities.
   - *Procedural Generative AI Engine:* Dynamically synthesizes high-tech motion graphics for abstract/statistical concepts (`is_ai_generated: true`).
+- **Google AI Video Studio (Gemini Pro & Veo 2.0):** End-to-end AI script analysis into timestamped storyboards, progressive multi-keyframe continuous motion engine, and native Google Veo 2.0 API integration supporting both new `AQ.` and legacy `AIza` keys.
 - **Strict Deduplication & Coverage (Must-Haves MH-2, MH-5):** Guarantees **zero repeated clips** in a video and 100% continuous narration coverage with zero audio drift.
 - **Multi-Aspect Ratio Transcoding (Must-Have MH-4):** Automatically generates **16:9 Landscape**, **9:16 Shorts/Reels/TikTok**, and **1:1 Square** outputs with H.264/AAC at 30 fps and burned-in captions.
 - **Accelerated Clip Swap & Partial Re-rendering (Advanced Tier ADV-2):** Replace any scene's clip and re-render only the affected interval in **3.2s vs 16.1s (5.0x faster)**.
