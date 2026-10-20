@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: b-roll-studio
+    env: docker
+    dockerfilePath: Dockerfile
+    plan: free
+    region: oregon
+    healthCheckPath: /health
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: DEBUG
+        value: false
+      - key: STORAGE_BACKEND
+        value: local
+      - key: STORAGE_LOCAL_DIR
+        value: ./artifacts/storage
+      - key: CORS_ORIGINS
+        value: '["*"]'
